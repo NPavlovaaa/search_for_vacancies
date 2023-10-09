@@ -1,8 +1,8 @@
 import VacancyList from "./components/VacancyList";
 import Slider from "../../components/Slider";
-import One from "../../assets/one.jpg";
-import Two from "../../assets/two.jpg";
-import For from "../../assets/for.jpg";
+import One from "../../assets/one.png";
+import Two from "../../assets/two.png";
+import For from "../../assets/three.png";
 const MainPage = () => {
     const images = [One, Two, For]
     return(

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Formik, Form, Field, ErrorMessage} from 'formik';
+import formik, {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from "yup";
 import styles from "./ModalWindow.module.scss";
 
@@ -19,6 +19,8 @@ const ModalWindow = ({formShowModal, setFormShowModal, item}) => {
             {currShowModal ?
                 <>
                     <Formik
+                        enableReinitialize
+                        validateOnMount
                         initialValues={{
                             fio: '',
                             email: '',
@@ -35,6 +37,7 @@ const ModalWindow = ({formShowModal, setFormShowModal, item}) => {
                         })}
 
                         onSubmit = {(values, {resetForm}) => {
+
                             sending(values);
                             resetForm();
                         }}
@@ -80,7 +83,7 @@ const ModalWindow = ({formShowModal, setFormShowModal, item}) => {
                                                     setShowModal(false)
                                                     setFormShowModal(false)
                                                 }}>Закрыть</button>
-                                        <button type="submit" className="btn btn-primary mt-2 mx-2">
+                                        <button type="submit" disabled={!formik.isValid} className="btn btn-primary mt-2 mx-2">
                                             Отправить
                                         </button>
                                     </div>
