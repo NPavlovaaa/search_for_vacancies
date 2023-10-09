@@ -21,14 +21,15 @@
 
     &__menu{
         display: flex;
-        height: 90px;
         align-items: center;
+        margin: 0;
 
         &__ul {
             @include custom_display(none, center, $space-xl);
             list-style-type:  none;
             padding: 0;
             align-items: center;
+            margin: 0;
 
             &__li {
                 @include custom_display(none, center);

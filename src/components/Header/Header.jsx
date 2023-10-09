@@ -8,19 +8,19 @@ const Header = () => {
         <div className={styles.main_block}>
             <Link to="/">
                 <div className={styles.main_block__logo}>
-                    <img src={Icon} width={50} alt="slider image"/>
+                    <img src={Icon} alt="slider image"/>
                 </div>
             </Link>
             <div className={styles.main_block__menu}>
                 <ul className={styles.main_block__menu__ul}>
                     <li className={styles.main_block__menu__ul__li}>
                         <NavLink to="/citizens" style={({isActive}) => ({color: isActive ? 'blue' : 'inherit'})}>
-                            <p>Гражданам</p>
+                            Гражданам
                         </NavLink>
                     </li>
                     <li className={styles.main_block__menu__ul__li}>
                         <NavLink to="/employers" style={({isActive}) => ({color: isActive ? 'blue' : 'inherit'})}>
-                            <p>Работодателям</p>
+                            Работодателям
                         </NavLink>
                     </li>
 
