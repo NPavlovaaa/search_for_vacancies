@@ -23,13 +23,14 @@ const InfoModalWindow = ({isShowModal, showModal, setFormShowModal, ...item}) =>
                 <div className={styles.modal}>
                     <div className={styles.modal__main}>
                         <h3 className="">{item?.jobName} ({item?.salary} {item?.currency})</h3>
+                        <p>{item?.company.name}</p>
                         <div className="">
                             <div ref={containerDescription}></div>
                             <div>
                                 <p className="fw-bold mb-0 mt-2">Доп. требования:</p>
                                 <ul>
-                                    <li>Образование: {item?.education}</li>
-                                    <li>Опыт работы: {item?.experience}</li>
+                                    <li>Образование: {item?.requirement.education}</li>
+                                    <li>Опыт работы: {item?.requirement.experience}</li>
                                 </ul>
                             </div>
                             <p>Адрес: {item?.address.location}</p>

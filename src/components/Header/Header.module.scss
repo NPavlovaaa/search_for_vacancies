@@ -1,0 +1,57 @@
+@import "variables";
+
+.main_block{
+    @include custom_display(none, flex-start, $space-xl);
+    height: 90px;
+    flex-shrink: 0;
+    padding: 0 100px;
+    align-content: center;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+
+    &__active{
+        color: blue;
+    }
+
+    &__logo{
+        @include custom_display(none, center, $space-xs);
+        height: 42px;
+        align-items: center;
+    }
+
+    &__menu{
+        display: flex;
+        height: 90px;
+        align-items: center;
+
+        &__ul {
+            @include custom_display(none, center, $space-xl);
+            list-style-type:  none;
+            padding: 0;
+            align-items: center;
+
+            &__li {
+                @include custom_display(none, center);
+                align-items: center;
+
+                a{
+                    @include custom_display(none, center);
+                    text-decoration: none;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    &__account{
+        @include custom_display(none, center, $space-m);
+        align-items: center;
+
+        &__item{
+            @include custom_display(column, center, 4px);
+            color: black;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+}

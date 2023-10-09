@@ -1,14 +1,12 @@
 import ItemVacancyList from "../ItemVacancyList";
 import {useGetVacanciesQuery} from "../../../../api/apiSlice";
 import {useMemo, useState} from "react";
-import Pagination from "../../../../components/pagination/Pagination";
+import Pagination from "../../../../components/Pagination/Pagination";
 
 const VacancyList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const {
         data = [],
-        isLoading,
-        isError
     } = useGetVacanciesQuery();
 
     const vacancyList = data.vacancies?.vacancy;
@@ -22,6 +20,7 @@ const VacancyList = () => {
 
     return(
         <div className="container py-5">
+            <h1 className="text-start mt-5">Вакансии</h1>
             <div className="row">
                 {currentData?.map(item => {
                     return (
