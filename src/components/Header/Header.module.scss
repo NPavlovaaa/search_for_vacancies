@@ -3,11 +3,11 @@
 .main_block{
     @include custom_display(none, space-between, $space-xl);
     height: 90px;
-    flex-shrink: 0;
     padding: 0 100px;
     align-content: center;
     align-items: center;
-    border-bottom: 1px solid lightgrey;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);;
 
     &__active{
         color: $primary;
@@ -43,6 +43,10 @@
                 p{
                     margin: 0;
                     font-size: 22px;
+                }
+
+                &:hover{
+                    color: $primary;
                 }
             }
         }

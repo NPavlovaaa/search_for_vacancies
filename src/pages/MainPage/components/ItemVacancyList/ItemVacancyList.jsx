@@ -18,7 +18,7 @@ const ItemVacancyList = ({item}) => {
         <>
             {formShowModal ? <ModalWindow formShowModal={formShowModal} setFormShowModal={isFormShowModal} item={item.jobName}/> : null}
             {infoShowModal ? <InfoModalWindow showModal={infoShowModal} isShowModal={isInfoShowModal} formShowModal={formShowModal} setFormShowModal={isFormShowModal} {...item}/> : null}
-            <div className="card text-start mt-5">
+            <div className="card text-start mt-5 bg-white border-0 shadow-lg">
                 <div className="card-body float-left">
                     <h3 className="card-title float-left">{item.jobName}</h3>
                     <h3>{item.salary} {item.currency}</h3>

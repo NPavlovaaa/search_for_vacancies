@@ -11,9 +11,13 @@ const InfoModalWindow = ({isShowModal, showModal, setFormShowModal, ...item}) =>
         setFormShowModal(true);
     }
     const containerDescription = useRef(null);
+    const containerCompany = useRef(null);
     useEffect(() => {
         if (containerDescription.current) {
             containerDescription.current.innerHTML = item?.description;
+        }
+        if (containerCompany.current) {
+            containerCompany.current.innerHTML = item?.company.name;
         }
     }, []);
 
@@ -23,8 +27,8 @@ const InfoModalWindow = ({isShowModal, showModal, setFormShowModal, ...item}) =>
                 <div className={styles.modal}>
                     <div className={styles.modal__main}>
                         <h3 className="">{item?.jobName} ({item?.salary} {item?.currency})</h3>
-                        <p>{item?.company.name}</p>
-                        <div className="">
+                        <div ref={containerCompany}>{item?.company.name}</div>
+                        <div>
                             <div ref={containerDescription}></div>
                             <div>
                                 <p className="fw-bold mb-0 mt-2">Доп. требования:</p>

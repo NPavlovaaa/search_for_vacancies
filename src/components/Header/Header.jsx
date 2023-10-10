@@ -15,8 +15,8 @@ const Header = () => {
             <div className={styles.main_block__menu}>
                 <ul className={styles.main_block__menu__ul}>
                     <li className={styles.main_block__menu__ul__li}>
-                        <NavLink to="/citizens" style={({isActive}) => ({color: isActive ? '#0D6EFD' : 'inherit'})}>
-                            <p>Гражданам</p>
+                        <NavLink to="/vacancies" style={({isActive}) => ({color: isActive ? '#0D6EFD' : 'inherit'})}>
+                            <p>Вакансии</p>
                         </NavLink>
                     </li>
                     <li className={styles.main_block__menu__ul__li}>
