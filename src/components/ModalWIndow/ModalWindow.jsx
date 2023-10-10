@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import formik, {Formik, Form, Field, ErrorMessage} from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from "yup";
 import styles from "./ModalWindow.module.scss";
-
 
 const ModalWindow = ({formShowModal, setFormShowModal, item}) => {
     const [currShowModal, setShowModal] = useState(formShowModal);
@@ -35,61 +34,63 @@ const ModalWindow = ({formShowModal, setFormShowModal, item}) => {
                             phone: Yup.string()
                                 .matches(phoneRegExp, 'Неправильный формат')
                         })}
-
                         onSubmit = {(values, {resetForm}) => {
-
                             sending(values);
                             resetForm();
                         }}
                     >
-                        <div className={styles.modal}>
-                            <div className={styles.modal__main}>
-                                <h3>Отклик на вакансию {item}</h3>
-                                <Form method="POST">
-                                    <div className={styles.modal__form}>
-                                        <div>
-                                            <Field
-                                                type="text"
-                                                name="fio"
-                                                className={styles.modal__form__input}
-                                                id="fio"
-                                                placeholder="Введите ФИО"
-                                                autoComplete="off"/>
-                                        </div>
-                                        <ErrorMessage component="div" className={styles.error} name="fio"/>
-                                        <div className="">
-                                            <Field
-                                                type="email"
-                                                name="email"
-                                                className={styles.modal__form__input}
-                                                id="email"
-                                                placeholder="Введите почту"
-                                                autoComplete="off"/>
-                                        </div>
-                                        <ErrorMessage component="div" className={styles.error} name="email"/>
-                                        <div className="">
-                                            <Field
-                                                type="phone"
-                                                name="phone"
-                                                className={styles.modal__form__input}
-                                                id="phone"
-                                                placeholder="Введите номер телефона"
-                                                autoComplete="off"/>
-                                        </div>
-                                        <ErrorMessage component="div" className={styles.error} name="phone"/>
-                                        <button type="submit"
-                                                className="btn btn-secondary mt-2"
-                                                onClick={() => {
-                                                    setShowModal(false)
-                                                    setFormShowModal(false)
-                                                }}>Закрыть</button>
-                                        <button type="submit" disabled={!formik.isValid} className="btn btn-primary mt-2 mx-2">
-                                            Отправить
-                                        </button>
+                        {formik => {
+                            return(
+                                <div className={styles.modal}>
+                                    <div className={styles.modal__main}>
+                                        <h3>Отклик на вакансию {item}</h3>
+                                        <Form method="POST">
+                                            <div className={styles.modal__form}>
+                                                <div>
+                                                    <Field
+                                                        type="text"
+                                                        name="fio"
+                                                        className={styles.modal__form__input}
+                                                        id="fio"
+                                                        placeholder="Введите ФИО"
+                                                        autoComplete="off"/>
+                                                </div>
+                                                <ErrorMessage component="div" className={styles.error} name="fio"/>
+                                                <div className="">
+                                                    <Field
+                                                        type="email"
+                                                        name="email"
+                                                        className={styles.modal__form__input}
+                                                        id="email"
+                                                        placeholder="Введите почту"
+                                                        autoComplete="off"/>
+                                                </div>
+                                                <ErrorMessage component="div" className={styles.error} name="email"/>
+                                                <div className="">
+                                                    <Field
+                                                        type="phone"
+                                                        name="phone"
+                                                        className={styles.modal__form__input}
+                                                        id="phone"
+                                                        placeholder="Введите номер телефона"
+                                                        autoComplete="off"/>
+                                                </div>
+                                                <ErrorMessage component="div" className={styles.error} name="phone"/>
+                                                <button type="submit"
+                                                        className="btn btn-secondary mt-2"
+                                                        onClick={() => {
+                                                            setShowModal(false)
+                                                            setFormShowModal(false)
+                                                        }}>Закрыть</button>
+                                                <button type="submit" disabled={!formik.isValid} className="btn btn-primary mt-2 mx-2">
+                                                    Отправить
+                                                </button>
+                                            </div>
+                                        </Form>
                                     </div>
-                                </Form>
-                            </div>
-                        </div>
+                                </div>
+                            )
+                        }}
                     </Formik>
                     <div className={styles.modal__background}></div>
                 </> : null}
